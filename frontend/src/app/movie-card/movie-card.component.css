@@ -1,0 +1,60 @@
+.filled-heart {
+    color: #e21919; /* Pink for filled heart */
+  }
+
+  .empty-heart {
+    color: gray; /* Gray for unfilled heart */
+  }
+
+  .wishlist-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  .wishlist-btn i:hover {
+    color: #eb2107; /* Add hover effect */
+  }
+
+  #theCard{
+    color: aliceblue;
+
+    background-color: #384f5e;
+
+    border-radius: 10px;
+  }
+
+  #theitem{
+
+    transition: transform 0.3s ease-in-out;
+
+    background-color: #384f5e;
+
+    border-radius: 27px;
+
+  }
+
+  #theitem:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+
+  #title{
+    font-size: 20px;
+    font-weight: 700;
+
+  }
+
+
+
+.the-card {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  right: 30px !important;
+  bottom: 10px !important;
+}

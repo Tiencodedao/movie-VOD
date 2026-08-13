@@ -1,0 +1,43 @@
+<div id="theitem" class="card border-0 h-100">
+  <div class=" the-card position-relative">
+    <img
+      [src]="getPoster(movie)"
+      class="card-img"
+      alt="Movie Poster"
+      (error)="handlePosterErr($event)"
+      routerLink="/movie/{{ movie.id }}"
+      style="cursor: pointer"
+    />
+    <app-rating-circle
+      class="circle position-absolute"
+      style="right: 10%; bottom: 3%; transform: translate(50%, 50%)"
+      [percent]="movieRatingPercent(movie)"
+    >
+    </app-rating-circle>
+  </div>
+  <div id="theCard" class="card-body d-flex flex-column justify-content-center">
+    <h3
+      id="title"
+      class="card-title"
+      routerLink="/movie/{{ movie.id }}"
+      style="cursor: pointer"
+    >
+      {{ movie.title }}
+    </h3>
+    <div class="d-flex justify-content-between">
+      <p class="card-text my-auto">
+        {{ movie.release_date | date : "mediumDate" }}
+      </p>
+      <!-- Wishlist Toggle Button -->
+      <button (click)="toggleWishlist()" class="wishlist-btn">
+        <i
+          [ngClass]="
+            isWishlisted()
+              ? 'fas fa-heart filled-heart'
+              : 'far fa-heart empty-heart'
+          "
+        ></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="mb-5">
+  <div class="d-flex m-5">
+    <input
+      id="form"
+      [(ngModel)]="searchData"
+      class="form-control me-5"
+      type="search"
+      placeholder="Search..."
+      aria-label="Search"
+      (keydown.enter)="search()"
+    />
+    <button
+      id="searchbtn"
+      type="submit"
+      class="btn btn-primary"
+      (click)="search()"
+    >
+      Search
+    </button>
+  </div>
+
+  @if (searchedQuery === '') {
+  <div class="text-center p-5">
+    <svg
+      width="250"
+      height="250"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+      class="text-light mb-5"
+    >
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <h2 class="text-light h1">Start searching</h2>
+  </div>
+
+  } @else if (searchedQuery && searchResults.length === 0) {
+  <div class="text-center p-5">
+    <svg
+      width="250"
+      height="250"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+      class="text-light mb-5 d-block mx-auto"
+    >
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      <line x1="8" y1="8" x2="14" y2="14"></line>
+      <line x1="14" y1="8" x2="8" y2="14"></line>
+    </svg>
+
+    <h2 class="text-light h2">No results found</h2>
+  </div>
+  } @else {
+
+  <p class="text-light ms-5 fw-semibold">
+    Search results for <span class="fw-bold fs-5">{{ searchedQuery }}</span>
+  </p>
+
+  <div class="row m-5">
+    @for (movie of searchResults; track $index) {
+    <div class="col-sm-12 col-md-6 col-lg-2 my-4">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+    }
+  </div>
+  }
+
+  <app-pagination
+    [totalPages]="totalPages"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+  >
+  </app-pagination>
+</div>

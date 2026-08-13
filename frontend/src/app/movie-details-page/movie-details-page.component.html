@@ -1,0 +1,123 @@
+<div class="movie-details mt-5">
+  <div class="m-5">
+    @if (movie) {
+    <div
+      class="row details"
+      [ngStyle]="{
+        'background-image': 'url(' + getBackdrop(movie) + ')',
+        'background-size': 'cover',
+        'background-position': 'center'
+      }"
+    >
+      <div class="backdrop-overlay"></div>
+
+      <div class="col col-sm-12 col-lg-4">
+        <div class="movie-image">
+          <img class="w-100" [src]="getPoster(movie)" />
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="movie-info">
+          <div class="top d-flex align-items-center justify-content-between">
+            <h2 class="movie-title mt-4 fw-bold">{{ movie.title }}</h2>
+            <div class="wish-icon fs-3">
+              <button (click)="toggleWishList()" class="wish">
+                <i
+                  [ngClass]="
+                    isWishListed()
+                      ? 'fas fa-heart filled-heart'
+                      : 'far fa-heart empty-heart'
+                  "
+                  class="fa-regular fa-heart"
+                ></i>
+              </button>
+            </div>
+          </div>
+
+          <p class="movie-date fs-5 text-light mb-0">
+            {{ movie.release_date | date : "mediumDate" }}
+          </p>
+
+          <div class="Rating d-flex gap-3 align-items-center mt-4">
+            <app-rating-circle
+              [percent]="movieRatingPercent(movie)"
+            ></app-rating-circle>
+            <div class="vote-count">{{ movie.vote_count }} (Reviews)</div>
+          </div>
+
+          <div class="movie-description mt-4">
+            <p class="fs-5 mb-0">{{ movie.overview }}</p>
+          </div>
+
+          <div class="movie-categories d-flex align-items-center gap-3 mt-4">
+            @for (genre of movie.genres; track $index) {
+
+            <div class="category">{{ genre.name }}</div>
+            }
+          </div>
+
+          <div class="duration-lang mt-4 d-flex gap-5">
+            <div class="duration">
+              <p class="fw-bold d-flex gap-4">
+                Duration :
+                <span class="fw-normal">{{ movie.runtime }} Min.</span>
+              </p>
+            </div>
+            <div class="lang">
+              <p class="fw-bold d-flex gap-4">
+                Languages :
+                <span class="fw-normal">{{
+                  movie.original_language | language
+                }}</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="logo mt-3">
+            @for (company of movie.production_companies; track $index) { @if
+            (company.logo_path) {
+            <img
+              [src]="'https://image.tmdb.org/t/p/w200' + company.logo_path"
+              [alt]="company.name"
+              class="company-logo"
+            />
+            } }
+          </div>
+
+          <div class="website mt-4">
+            @if(movie.homepage){
+            <a
+              class="d-flex gap-2 align-items-center web-link"
+              [href]="movie.homepage"
+              target="_blank"
+              >Website<i class="fa-solid fa-link"></i
+            ></a>
+            }@else {
+            <p class="err">Sorry, the website is currently unavailable!</p>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="recommendations mt-4">
+        <h3 class="fs-1 recomend">Recommendations</h3>
+
+        <div class="recomend-cards mt-4 mb-4">
+          <div class="row">
+            @for (movie of recommendations; track $index) {
+            <div class="col-sm-12 col-md-6 col-lg-2 my-4">
+              <app-movie-card [movie]="movie"></app-movie-card>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    }@else {
+    <p class="opps">Oopps! Movie not found.</p>
+    }
+  </div>
+</div>

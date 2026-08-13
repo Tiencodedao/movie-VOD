@@ -1,0 +1,53 @@
+
+/* New Design for Nav bar */
+.navbar {
+
+  background: linear-gradient(45deg, #4337a5, #766afc);
+  backdrop-filter: blur(30px);
+  top: 0;
+  opacity: 90%;
+  position: sticky;
+  z-index: 9999;
+
+
+}
+.navbar-brand {
+    color: white;
+    font-size: 20px;
+  }
+  .navbar-brand:hover{
+    color: #ffe353;
+  }
+  .navbar-brand:active{
+    color: #eeb12b;
+  }
+  /* New watch List cssBadge design  */
+.custom-badge {
+  background-color: black;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 6px 10px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.wish {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.wish span {
+  position: absolute;
+  top: 2px;
+  right: -25px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3e3297;
+}
+
+

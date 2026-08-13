@@ -1,0 +1,27 @@
+.toTop {
+  position: fixed;
+  bottom: 20px;
+  right: -60px;
+  background-color: #384F5E;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+.toTop.visible {
+  right: 20px;
+}
+
+.toTop.hidden {
+  right: -60px;
+}
+
+.toTop:hover {
+  background-color: #314552;
+}

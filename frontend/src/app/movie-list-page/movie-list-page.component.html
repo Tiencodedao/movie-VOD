@@ -1,0 +1,47 @@
+<div id="search" class="search">
+  <div class="overlay"></div>
+  <br /><br />
+  <div class="item p-5 mx-5">
+    <h2>Welcome to</h2>
+    <h2>our Movie Best</h2>
+    <br />
+    <h5>Millions of movies, TV shows and people to discover. Explore now.</h5>
+    <br /><br />
+    <div class="d-flex my-4">
+      <input
+        id="form"
+        [(ngModel)]="searchData"
+        class="form-control me-3"
+        type="search"
+        placeholder="Search..."
+        aria-label="Search"
+        (keydown.enter)="search()"
+      />
+      <button
+        id="searchbtn"
+        type="submit"
+        class="btn btn-primary"
+        (click)="search()"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row m-5">
+  @for (movie of movies; track movie.id) {
+
+  <div class="col-sm-12 col-md-6 col-lg-2 my-4">
+    <app-movie-card [movie]="movie"></app-movie-card>
+  </div>
+
+  }
+
+  <app-pagination
+    [totalPages]="totalPages"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+  >
+  </app-pagination>
+</div>

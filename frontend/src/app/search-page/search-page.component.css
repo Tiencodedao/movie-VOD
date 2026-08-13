@@ -1,0 +1,29 @@
+#form {
+  font-weight: 600;
+  height: 55px;
+  color: rgb(255, 255, 255);
+  opacity: 75%;
+  background-color: #222b31;
+}
+
+#searchbtn {
+  background: linear-gradient(45deg, #4a3cb6, #766afc);
+  border-radius: 8px;
+  color: #ffffff;
+  border: none;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+#searchbtn:hover {
+  background: linear-gradient(45deg, #6a5df0, #8174ff);
+  box-shadow: 0 0 10px rgba(106, 93, 240, 0.7);
+}
+
+#searchbtn:active {
+  background: linear-gradient(45deg, #382d8b, #584fbd);
+}
+
+#form::placeholder {
+  color: white;
+}

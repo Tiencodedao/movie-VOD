@@ -1,0 +1,67 @@
+.container {
+    max-width: 1200px;
+  }
+
+  .card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .text-muted {
+    font-size: 14px;
+    --bs-text-opacity: 1;
+    color: white !important;
+  }
+
+  .wishlist-page .empty-state i {
+    transition: color 0.3s ease;
+  }
+
+  .wishlist-page .empty-state i:hover {
+    color: #ff0000;
+  }
+
+  .lead, h1 {
+    color: white;
+  }
+  .card-body {
+   
+    background-color: #384f5e;
+}
+
+hr{
+  color: #ddf1ff;
+
+}
+
+  @keyframes glow {
+    0% { text-shadow: 0 0 5px #ffcc00; }
+    50% { text-shadow: 0 0 20px #ffcc00, 0 0 10px #ff9900; }
+    100% { text-shadow: 0 0 5px #ffcc00; }
+  }
+  
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    animation: glow 2s infinite alternate;
+  }
+  
+
+
