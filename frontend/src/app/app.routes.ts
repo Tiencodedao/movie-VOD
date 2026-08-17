@@ -4,6 +4,7 @@ import { MovieWishlistPageComponent } from './movie-wishlist-page/movie-wishlist
 import { MovieDetailsPageComponent } from './movie-details-page/movie-details-page.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,12 @@ export const routes: Routes = [
     component: MovieDetailsPageComponent,
 
     title: 'Details',
+  },
+
+  {
+    path: 'login',
+    component: LoginPageComponent,
+    title: 'Login - Movies Vietnam',
   },
 
   {
